@@ -1,1 +1,63 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'variables'
+  
+// Resets
+*
+  box-sizing: border-box
+  color: $black
+  font-family: $main-font
+  margin: 0
+  padding: 0
+  transition: background-color $duration ease-in-out, border-radius $duration ease-in-out, color $duration ease-in-out, outline-color $duration ease-in-out
+
+html
+  height: 100%
+  font-size: 62.5%
+
+body
+  font-size: 1.6rem
+
+a
+  text-decoration: none
+
+  &:visited
+    color: $black
+
+  &:hover,
+  &.active
+    color: $blue  
+
+ul
+  list-style: none
+  
+// These styles makes footer stick to the bottom of the page
+body,
+app-root 
+  display: flex
+  flex-direction: column
+  height: 100%
+
+app-footer
+  margin-top: auto
+
+// Generic classes
+.focusable,
+a
+  outline: 0.2rem solid transparent
+  outline-offset: 0.25rem
+
+  &:focus
+    border-radius: 0.25rem
+    color: $blue
+    outline-color: $blue
+
+.visually-hidden, 
+.visually-hidden-focusable:not(:focus):not(:focus-within)
+  border: 0!important
+  clip: rect(0,0,0,0)!important
+  height: 1px!important
+  margin: -1px!important
+  overflow: hidden!important
+  padding: 0!important
+  position: absolute!important
+  white-space: nowrap!important
+  width: 1px!important

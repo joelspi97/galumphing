@@ -1,0 +1,19 @@
+<header class="header">
+  <div class="header__logo">Galumphing</div>
+  <nav class="header__nav">
+    <ul>
+      <li>
+        <a [routerLinkActiveOptions]="{ exact: true }" routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">Inicio</a>
+      </li>
+      <li>
+        <a [routerLinkActiveOptions]="{ exact: true }" routerLink="/pinturas" routerLinkActive="active" ariaCurrentWhenActive="page">Pinturas</a>
+      </li>
+      <li>
+        <a [routerLinkActiveOptions]="{ exact: true }" routerLink="/lineas" routerLinkActive="active" ariaCurrentWhenActive="page">Tintas/Grafito</a>
+      </li>
+      <li>
+        <a [routerLinkActiveOptions]="{ exact: true }" routerLink="/contacto" routerLinkActive="active" ariaCurrentWhenActive="page">Contacto</a>
+      </li>
+    </ul>
+  </nav>
+</header>

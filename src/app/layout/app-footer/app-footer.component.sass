@@ -1,0 +1,41 @@
+@import 'variables'
+  
+.footer
+  align-items: flex-end
+  display: flex
+  flex-direction: column
+  font-size: 1.5rem
+  gap: 1rem
+  margin-top: auto
+  padding: 1rem 2rem
+
+  &__credit
+    a
+      font-weight: 700
+
+  &__social-media
+    align-items: center
+    display: flex
+    gap: 1rem
+
+    ul
+      align-items: center
+      display: flex
+      gap: 1rem
+
+      li,
+      a
+        display: inline-block
+        height: 3.2rem
+        
+      a
+        &:focus-visible svg,
+        &:hover svg
+          fill: $blue
+        
+        .footer__icon
+          height: 3.2rem
+          transition: fill $duration ease-in-out
+          width: 3.2rem
+
+      

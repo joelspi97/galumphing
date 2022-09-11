@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "galumphin": {
+    "galumphing": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/galumphin",
+            "outputPath": "dist/galumphing",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -30,6 +30,11 @@
             "styles": [
               "src/styles.sass"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/sass"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -69,10 +74,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "galumphin:build:production"
+              "browserTarget": "galumphing:build:production"
             },
             "development": {
-              "browserTarget": "galumphin:build:development"
+              "browserTarget": "galumphing:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +85,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "galumphin:build"
+            "browserTarget": "galumphing:build"
           }
         },
         "test": {
