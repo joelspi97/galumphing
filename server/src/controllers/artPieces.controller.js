@@ -4,8 +4,8 @@ const artPiecesController = {};
 
 artPiecesController.getArtPieces = async (req, res) => {
   try {
-    const artPieces = await artPieceModels[`${req.body.model}`].find();
-    res.json({ artPieces, message: 'Art pieces retrieved successfully' });
+    const artPieces = await artPieceModels[`${req.params.model}`].find();
+    res.json({ message: 'Art pieces retrieved successfully', artPieces });
   } catch (err) {
     console.error(`Could not get art pieces: ${err}`);
   }
@@ -13,9 +13,9 @@ artPiecesController.getArtPieces = async (req, res) => {
 
 artPiecesController.postArtPiece = async (req, res) => {
   try {
-    const newArtPiece = new artPieceModels[`${req.body.model}`](req.body);
+    const newArtPiece = new artPieceModels[`${req.params.model}`](req.body);
     await newArtPiece.save();
-    res.json({ newArtPiece, message: 'Art piece uploaded successfully'});
+    res.json({ message: 'Art piece uploaded successfully', newArtPiece });
   } catch (err) {
     console.error(`Could not post art piece: ${err}`);
   }
@@ -23,8 +23,8 @@ artPiecesController.postArtPiece = async (req, res) => {
 
 artPiecesController.deleteArtPiece = async (req, res) => {
   try {
-    const deletedArtPiece = await artPieceModels[`${req.body.model}`].findByIdAndDelete(req.params.id);
-    res.json({ deletedArtPiece, message: 'Art piece deleted successfully' });
+    const deletedArtPiece = await artPieceModels[`${req.params.model}`].findByIdAndDelete(req.params.id);
+    res.json({ message: 'Art piece deleted successfully', deletedArtPiece });
   } catch (err) {
     console.error(`Could not delete art Piece: ${err}`);
   }
@@ -32,8 +32,8 @@ artPiecesController.deleteArtPiece = async (req, res) => {
 
 artPiecesController.getArtPieceDetails = async (req, res) => {
   try {
-    const artPieceDetails = await artPieceModels[`${req.body.model}`].findById(req.params.id);
-    res.json({ artPieceDetails, message: 'Art pieces details retrieved succesfully' });
+    const artPieceDetails = await artPieceModels[`${req.params.model}`].findById(req.params.id);
+    res.json({ message: 'Art pieces details retrieved succesfully', artPieceDetails });
   } catch (err) {
     console.error(`Could not get art Piece details: ${err}`);
   }
@@ -41,8 +41,8 @@ artPiecesController.getArtPieceDetails = async (req, res) => {
 
 artPiecesController.updateArtPieceDetails = async (req, res) => {
   try {
-    const updatedArtPiece = await artPieceModels[`${req.body.model}`].findByIdAndUpdate(req.params.id, req.body);
-    res.json({ updatedArtPiece, message: 'Art Piece details updated successfully' });
+    const updatedArtPiece = await artPieceModels[`${req.params.model}`].findByIdAndUpdate(req.params.id, req.body);
+    res.json({ message: 'Art Piece details updated successfully', updatedArtPiece });
   } catch (err) {
     console.error(`Could not update art Piece details: ${err}`);
   }

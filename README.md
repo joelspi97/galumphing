@@ -12,5 +12,6 @@ To build it I used the following:
 * Angular 14
 * Node.js
 * Express
+* MongoDB
 * Jest
 * Sass

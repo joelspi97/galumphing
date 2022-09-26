@@ -1,1 +1,3 @@
-<p>paintings works!</p>
+<ng-container *ngIf="paintings.length > 0">
+  <p *ngFor="let painting of paintings">{{ painting.name }}</p>
+</ng-container>
