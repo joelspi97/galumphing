@@ -7,9 +7,9 @@ import { AppComponent } from './app.component';
 import { AppHeaderComponent } from './layout/app-header/app-header.component';
 import { AppFooterComponent } from './layout/app-footer/app-footer.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { PaintingsComponent } from './components/paintings/paintings.component';
-import { LineworksComponent } from './components/lineworks/lineworks.component';
 import { HomeComponent } from './components/home/home.component';
+import { ArtPiecesComponent } from './components/art-pieces/art-pieces.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -17,9 +17,9 @@ import { HomeComponent } from './components/home/home.component';
     AppHeaderComponent,
     AppFooterComponent,
     ContactComponent,
-    PaintingsComponent,
-    LineworksComponent,
-    HomeComponent
+    HomeComponent,
+    ArtPiecesComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
