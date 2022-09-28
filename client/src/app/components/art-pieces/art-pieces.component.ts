@@ -2,8 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavigationEnd, Router, RouterEvent, Event } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
-import { ArtPiece } from 'src/app/models/ArtPiece';
-import { ArtPiecesService } from 'src/app/services/artPieces.service';
+import { ArtPiecesService } from 'src/app/services/art-pieces/art-pieces.service';
 
 @Component({
   selector: 'app-art-pieces',
@@ -11,8 +10,6 @@ import { ArtPiecesService } from 'src/app/services/artPieces.service';
   styleUrls: ['./art-pieces.component.sass']
 })
 export class ArtPiecesComponent implements OnInit, OnDestroy {
-  ART_PIECE_MODEL: string = '';
-  artPieces: ArtPiece[] = [];
   routerEventsSubscription: Subscription;
 
   constructor(
@@ -24,11 +21,11 @@ export class ArtPiecesComponent implements OnInit, OnDestroy {
     ).subscribe((e: RouterEvent): void => {
       switch (e.url) {
         case '/pinturas':
-          this.ART_PIECE_MODEL = 'Painting';
+          this.artPiecesService.artPieceModel = 'Painting';
           break;
 
         case '/lineas':
-          this.ART_PIECE_MODEL = 'Linework';
+          this.artPiecesService.artPieceModel = 'Linework';
           break;
 
         default:
@@ -45,10 +42,10 @@ export class ArtPiecesComponent implements OnInit, OnDestroy {
     this.routerEventsSubscription.unsubscribe();
   }
 
-  getArtPieces() {
-    this.artPiecesService.getArtPieces(this.ART_PIECE_MODEL).subscribe(
-      res => this.artPieces = res.artPieces,
-      err => console.error(err)
-    );
+  getArtPieces():void {
+    this.artPiecesService.getArtPieces().subscribe({
+      next: res => this.artPiecesService.artPieces = res.artPieces,
+      error: err => console.error(err)
+    });
   }
 }

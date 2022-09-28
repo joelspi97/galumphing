@@ -1,0 +1,116 @@
+@import 'variables'
+
+:host
+  width: 100%
+
+.contact
+  align-items: center
+  display: flex
+  flex-direction: column
+  justify-content: center
+  width: 100%
+
+  h2
+    font-size: 3.5rem
+    font-style: italic
+    font-weight: 600
+    margin-bottom: 3rem
+  
+  &__form 
+    display: flex
+    flex-direction: column
+    max-width: 70rem
+    position: relative
+    width: 100%
+
+  label 
+    font-size: 1.85rem
+    font-weight: 600
+    margin-bottom: 0.3rem
+    text-align: start
+    width: fit-content
+  
+  &__input 
+    border: 0.15rem solid $black
+    border-radius: 0.25rem
+    font-size: 1.6rem
+    margin-bottom: 3rem
+    padding: 0.7rem 1rem
+    transition: border-color 0.15s ease-in-out
+
+    &:read-only 
+      border-color: $grey
+      color: $grey
+    
+    &::placeholder 
+      color: #595959
+      font-style: italic
+
+    &--error 
+      border-color: $red
+      outline-color: $red
+    
+
+  textarea.contact__input 
+    min-height: 5.1rem
+    resize: vertical
+
+  &__state-msg 
+    font-size: 1.6rem
+    font-weight: 600
+    margin-bottom: 0.5rem
+    margin-top: -2.45rem
+
+    &--success 
+      color: $blue
+  
+    &--error 
+      color: $red
+    
+
+  &__loading-spinner 
+    align-items: center
+    bottom: 5.5rem
+    display: flex
+    justify-content: center
+    position: absolute
+    right: calc(50% - 1.5rem)
+  
+    &::after 
+      animation: spin 1.2s linear infinite
+      content: ''
+      background-color: $blue
+      border: 0.5rem solid #ffffff
+      border-radius: 50%
+      border-top-color: $black
+      height: 3rem
+      width: 3rem
+    
+
+  &__btn 
+    background-color: $dark-grey
+    border: 0.2rem solid $dark-grey
+    border-radius: 0.25rem
+    color: white
+    cursor: pointer
+    font-size: 1.8rem
+    font-weight: 600
+    margin-top: 2.9rem
+    padding: 1rem
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, color 0.15s ease-in-out
+
+    &:hover, &:focus-visible 
+      background-color: $white
+      border-color: $blue
+      color: $blue
+      outline: none
+
+    &:disabled 
+      border-color: $grey
+      color: $grey
+      cursor: default
+    
+    
+@keyframes spin 
+  to 
+    transform: rotate(1turn)

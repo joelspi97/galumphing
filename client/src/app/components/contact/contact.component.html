@@ -1,1 +1,81 @@
-<p>contact works!</p>
+<section class="contact">
+  <h2>Contacto</h2>
+  <form 
+    #contactForm="ngForm"
+    class="contact__form"
+    (ngSubmit)="sendMessage(contactForm)"
+  >
+    <label for="name">Nombre</label>
+    <input
+      class="contact__input"
+      id="name"
+      name="name"
+      [(ngModel)]="contactFormService.contactMessage.name"
+      placeholder="Nombre completo"
+      [readOnly]="loading" 
+      required
+      type="text"
+    />
+
+    <label for="email">Correo electrónico</label>
+    <input
+      class="contact__input"
+      id="email"
+      name="email"
+      [(ngModel)]="contactFormService.contactMessage.email"
+      placeholder="ejemplo@mail.com"
+      [readOnly]="loading"
+      required
+      type="email"
+    />
+
+    <label for="subject">Asunto</label>
+    <input
+      class="contact__input"
+      id="subject"
+      name="subject"
+      [(ngModel)]="contactFormService.contactMessage.subject"
+      [readOnly]="loading"
+      required
+      type="text"
+    />
+
+    <label for="body">Mensaje</label>
+    <textarea
+      class="contact__input"
+      id="body"
+      name="body"
+      [(ngModel)]="contactFormService.contactMessage.body"
+      [readOnly]="loading"
+      required
+      rows="5"
+    ></textarea>
+
+    <!-- Status Messages -->
+    <div 
+      *ngIf="success" 
+      class="contact__state-msg contact__state-msg--success" 
+      aria-live="assertive"
+    >
+      Your message has been delivered successfully!
+    </div>
+    <div 
+      *ngIf="error" 
+      class="contact__state-msg contact__state-msg--error" 
+      aria-live="assertive"
+    >
+      <span class="sr-only">Error: </span>
+      {{ errorMsg }}
+    </div>
+    <div 
+      *ngIf="loading" 
+      class="contact__loading-spinner" 
+      aria-live="assertive"
+    >
+      <span class="sr-only">Loading.</span>
+    </div>
+    <!-- /Status Messages -->
+
+    <button class="contact__btn" type="submit" [disabled]="loading">Enviar mensaje</button>
+  </form>
+</section>

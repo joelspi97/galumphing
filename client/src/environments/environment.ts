@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  contactUrl: 'http://localhost:3000/contact',
   apiUrl: 'http://localhost:3000/api/art-pieces'
 };
 

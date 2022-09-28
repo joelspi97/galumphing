@@ -14,5 +14,6 @@ app.use(express.urlencoded({ extended: false }));
 
 // Routes
 app.use('/api/art-pieces', require('./routes/artPieces.routes'));
+app.use('/contact', require('./routes/contactForm.routes'));
 
 module.exports = app;
