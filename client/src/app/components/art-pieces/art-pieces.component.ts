@@ -10,7 +10,7 @@ import { ArtPiecesService } from 'src/app/services/art-pieces/art-pieces.service
   styleUrls: ['./art-pieces.component.sass']
 })
 export class ArtPiecesComponent implements OnInit, OnDestroy {
-  routerEventsSubscription: Subscription;
+  private routerEventsSubscription: Subscription;
 
   constructor(
     public artPiecesService: ArtPiecesService,
@@ -39,10 +39,11 @@ export class ArtPiecesComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy():void {
+    this.artPiecesService.artPieces = [];
     this.routerEventsSubscription.unsubscribe();
   }
 
-  getArtPieces():void {
+  private getArtPieces():void {
     this.artPiecesService.getArtPieces().subscribe({
       next: res => this.artPiecesService.artPieces = res.artPieces,
       error: err => console.error(err)

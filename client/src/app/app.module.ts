@@ -1,23 +1,21 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
-import { AppHeaderComponent } from './layout/app-header/app-header.component';
-import { AppFooterComponent } from './layout/app-footer/app-footer.component';
-import { ContactComponent } from './components/contact/contact.component';
+import { AppHeaderComponent } from './components/app-header/app-header.component';
+import { AppFooterComponent } from './components/app-footer/app-footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { ArtPiecesComponent } from './components/art-pieces/art-pieces.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ContactModule } from './components/contact/contact.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppHeaderComponent,
     AppFooterComponent,
-    ContactComponent,
     HomeComponent,
     ArtPiecesComponent,
     PageNotFoundComponent
@@ -26,7 +24,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    ContactModule
   ],
   providers: [],
   bootstrap: [AppComponent]
